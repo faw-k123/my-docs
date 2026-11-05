@@ -1,0 +1,11 @@
+site_name: 我的技术文档
+site_url: https://faw-k123.github.io/my-docs/
+repo_url: https://github.com/faw-k123/my-docs
+theme:
+  name: material
+  language: zh
+nav:
+  - 首页: index.md
+  - 关于: about.md
+  - 使用指南: guide.md
+  - API参考: api.md
