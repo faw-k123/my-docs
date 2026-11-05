@@ -7,7 +7,7 @@
 - 最终网站地址：`https://faw-k123.github.io/my-docs/`
 ## 2. 实践过程与关键截图
 2.1 仓库创建
-![个人仓库](images\01.png)
+![个人仓库](images/01.png)
 
 2.2 项目结构与 MkDocs 配置
 ![项目结构](images/02-structure-mkdocs.png)
@@ -17,12 +17,12 @@ mkdocs.yml中的nav用来定义网站顶部导航菜单，导航路径是相对�
 site目录为mkdocs build自动生成的静态网页构建产物，每次构建会覆盖，不提交到git，不手动修改。
 
 2.3 本地构建或预览
-![本地构建](images\03.jpg)
+![本地构建](images/03.jpg)
 执行`python -m mkdocs serve`启动本地预览服务，访问 `http://127.0.0.1:8000/my-docs/` 预览文档网站，程序会监听文档文件变化，支持实时刷新。
 终端黄色文字是Material主题的生命周期提醒，不影响功能。首页、关于、使用指南、API参考等页面均可正常跳转浏览。
 
 2.4 Pages 设置
-![Pages 设置](images\04-pages-source-setting.png)
+![Pages 设置](images/04-pages-source-setting.png)
 进入仓库 `Settings → Pages`，在 Build and deployment 区域将 Source（发布来源）设置为 **GitHub Actions**，页面提示 `GitHub Pages source saved.`，代表配置保存成功。
 随后进入 `Settings → Actions → General`，确认仓库允许执行项目的 Actions 工作流。
 > 本方案在工作流文件内直接授予部署权限，无需修改仓库全局读写权限，也不需要勾选 `Allow GitHub Actions to create and approve pull requests`。
@@ -36,19 +36,19 @@ pages: write、id-token: write：权限声明，给流水线授予操作 GitHub 
 github-pages：GitHub 内置的部署环境，用于管理本次 Pages 部署记录，同时生成最终可访问的在线网页地址
 
 2.6 网站访问与四页导航检查
-![网站访问与四页导航检查](images\05-Actions流水线成功页面.png)
+![网站访问与四页导航检查](images/05-Actions流水线成功页面.png)
 代码推送 main 分支后，GitHub Actions 自动触发`Deploy MkDocs to GitHub Pages`工作流，流水线状态为 Success，build 与 deploy 任务均执行成功。
-![网站访问与四页导航检查](images\06图1.jpg)
-![网站访问与四页导航检查](images\06图2.png)
-![网站访问与四页导航检查](images\06图3.png)
-![网站访问与四页导航检查](images\06图4.png)
+![网站访问与四页导航检查](images/06图1.jpg)
+![网站访问与四页导航检查](images/06图2.png)
+![网站访问与四页导航检查](images/06图3.png)
+![网站访问与四页导航检查](images/06图4.png)
 访问部署站点`https://faw-k123.github.io/my-docs/`，依次访问首页、关于、使用指南、API 参考页面。全部页面加载正常，侧边导航菜单跳转顺畅，表格、代码块等 Markdown 元素渲染正常，无 404 链接。
 
 2.7 第二次推送与自动更新验证
 - 对应提交链接：[https://github.com/faw-k123/my-docs/commit/f31e5b98f72a051aa39b179bdf0dc03f29244a10](https://github.com/faw-k123/my-docs/commit/f31e5b98f72a051aa39b179bdf0dc03f29244a10)
 - 对应 Actions 运行链接：[https://github.com/faw-k123/my-docs/actions/runs/42036319967](https://github.com/faw-k123/my-docs/actions/runs/42036319967)
-![第二次推送与自动更新验证](images\07图1.png)
-![第二次推送与自动更新验证](images\07图2.png)
+![第二次推送与自动更新验证](images/07图1.png)
+![第二次推送与自动更新验证](images/07图2.png)
 修改`docs/index.md`首页文档，添加可识别验证文字：`自动部署验证：这是我第二次推送后更新的内容。`
 执行 git 提交推送命令，本次推送自动触发 GitHub Actions 流水线，**不手动触发部署**。等待流水线执行成功，使用无痕窗口访问站点，页面成功展示新增文本，验证自动更新生效。
 
